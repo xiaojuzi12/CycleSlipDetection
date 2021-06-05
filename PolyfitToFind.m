@@ -1,15 +1,15 @@
-A=xlsread('C:\Users\ÀäÄı\Desktop\ÓĞĞ¡ÖÜÌøGPSÊı¾İ.xls');  %µ¼ÈëÊı¾İ
+A=xlsread('C:\Users\å†·å‡\Desktop\æœ‰å°å‘¨è·³GPSæ•°æ®.xls');  %å¯¼å…¥æ•°æ®
 warning off;
-L1=A(1:3543,4)'; %L1ÊÇL1ÔØ²¨
+L1=A(1:3543,4)'; %L1æ˜¯L1è½½æ³¢
 
 
 Pic1(1:3543)=0; 
 Pic2(1:3543)=0;
 Pic3(1:3543)=0;
 Pic4(1:3543)=0;
- %Ô¤±¸»­Í¼
+ %é¢„å¤‡ç”»å›¾
 
-m=12;  %m¸öÔØ²¨ÏàÎ»¹Û²âÖµ
+m=12;  %mä¸ªè½½æ³¢ç›¸ä½è§‚æµ‹å€¼
 
 for i=1:(3543-m-1)
 l=L1(i:(i+m));
@@ -19,13 +19,13 @@ lt2=polyfit(t,l(1:m),6);
 lt3=polyfit(t,l(1:m),7);
 lt4=polyfit(t,l(1:m),8);
 
-%ÄâºÏ
+%æ‹Ÿåˆ
 lt=A(i:(i+m),2)';
 y1=polyval(lt1,lt);
 y2=polyval(lt2,lt);
 y3=polyval(lt3,lt);
 y4=polyval(lt4,lt);
-%ÇóÖĞÎó²îop
+%æ±‚ä¸­è¯¯å·®op
 
 
 VV1=sum((y1(1:(m+1))-l(1:(m+1))).^2);
@@ -39,48 +39,49 @@ op4=sqrt(VV4/m);
 
 
 
-if abs(y1(m+1)-l(m+1)) >= op1*3  %·¢ÏÖÖÜÌø
-fprintf('5´ÎÄâºÏÌ½²â\n %d\n',i+m);
+if abs(y1(m+1)-l(m+1)) >= op1*3  %å‘ç°å‘¨è·³
+fprintf('5æ¬¡æ‹Ÿåˆæ¢æµ‹\n %d\n',i+m);
 Pic1(i) = y1(m+1)-l(m+1);
-i = i+m;  %Ìø¹ıÖÜÌø
+i = i+m;  %è·³è¿‡å‘¨è·³
 end
 
 
 
-if abs(y2(m+1)-l(m+1)) >= op2*3  %·¢ÏÖÖÜÌø
-fprintf('6´ÎÄâºÏÌ½²â\n %d\n',i+m);
+if abs(y2(m+1)-l(m+1)) >= op2*3  %å‘ç°å‘¨è·³
+fprintf('6æ¬¡æ‹Ÿåˆæ¢æµ‹\n %d\n',i+m);
 Pic2(i) = y2(m+1)-l(m+1);
-i = i+m;  %Ìø¹ıÖÜÌø
+i = i+m;  %è·³è¿‡å‘¨è·³
 end
 
 
 
-if abs(y3(m+1)-l(m+1)) >= op3*3  %·¢ÏÖÖÜÌø
-fprintf('7´ÎÄâºÏÌ½²â\n %d\n',i+m);
+if abs(y3(m+1)-l(m+1)) >= op3*3  %å‘ç°å‘¨è·³
+fprintf('7æ¬¡æ‹Ÿåˆæ¢æµ‹\n %d\n',i+m);
 Pic3(i) = y3(m+1)-l(m+1);
-i = i+m;  %Ìø¹ıÖÜÌø
+i = i+m;  %è·³è¿‡å‘¨è·³
 end
 
 
 
-if abs(y4(m+1)-l(m+1)) >= op4*3  %·¢ÏÖÖÜÌø
-fprintf('8´ÎÄâºÏÌ½²â\n %d\n',i+m);
+if abs(y4(m+1)-l(m+1)) >= op4*3  %å‘ç°å‘¨è·³
+fprintf('8æ¬¡æ‹Ÿåˆæ¢æµ‹\n %d\n',i+m);
 Pic4(i) = y4(m+1)-l(m+1);
-i = i+m;  %Ìø¹ıÖÜÌø
+i = i+m;  %è·³è¿‡å‘¨è·³
 end
 
 end
 
-%»­Í¼
+%ç”»å›¾
 subplot(2,2,1);
 plot(Pic1);
-title('5´ÎÄâºÏ');
+title('5æ¬¡æ‹Ÿåˆ');
 subplot(2,2,2);
 plot(Pic2);
-title('6´ÎÄâºÏ');
+title('6æ¬¡æ‹Ÿåˆ');
 subplot(2,2,3);
 plot(Pic3);
-title('7´ÎÄâºÏ');
+title('7æ¬¡æ‹Ÿåˆ');
 subplot(2,2,4);
 plot(Pic4);
-title('8´ÎÄâºÏ');
+title('8æ¬¡æ‹Ÿåˆ');
+123
